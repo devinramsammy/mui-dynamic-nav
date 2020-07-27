@@ -31,7 +31,7 @@ export default function Collapsible({ title, icon, children }) {
         <List component='div' disablePadding>
           {children.map((nav, index) => {
             return (
-              <>
+              <div>
                 <ListItem
                   button={true}
                   key={index}
@@ -48,7 +48,7 @@ export default function Collapsible({ title, icon, children }) {
                     className={styles.listItem}
                   />
                 </ListItem>
-              </>
+              </div>
             )
           })}
         </List>

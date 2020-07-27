@@ -85,7 +85,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                   )
                 } else {
                   return (
-                    <>
+                    <div>
                       <ListItem
                         button={true}
                         key={index}
@@ -98,7 +98,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
 
                         <ListItemText primary={nav.title} />
                       </ListItem>
-                    </>
+                    </div>
                   )
                 }
               })}
@@ -134,7 +134,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                   )
                 } else {
                   return (
-                    <>
+                    <div>
                       <Grid item key={index}>
                         <ListItem
                           button={true}
@@ -149,7 +149,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                           <ListItemText primary={nav.title} />
                         </ListItem>
                       </Grid>
-                    </>
+                    </div>
                   )
                 }
               })}
@@ -208,7 +208,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
         {simpleMenu !== undefined ? (
           <SimpleMenu menuItems={simpleMenu}></SimpleMenu>
         ) : (
-          <></>
+          <div></div>
         )}
       </div>
     )
