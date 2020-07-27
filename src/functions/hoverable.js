@@ -9,6 +9,7 @@ import {
   Typography
 } from '@material-ui/core'
 import styles from '../css/generator.module.css'
+import { Link } from 'react-router-dom'
 
 export default function Hoverable({ children, icon, title, mode }) {
   const [open, setOpen] = useState(false)
