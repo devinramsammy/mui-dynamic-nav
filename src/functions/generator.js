@@ -1,5 +1,5 @@
-import React from "react";
-import { checkTitle } from "./validator.js";
+import React from 'react'
+import { checkTitle } from './validator.js'
 import {
   Typography,
   IconButton,
@@ -10,57 +10,58 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Button,
-} from "@material-ui/core";
-import styles from "../css/generator.module.css";
-import Collapsible from "./collapsible";
-import SimpleMenu from "./menu";
-import Hoverable from "./hoverable";
+  Button
+} from '@material-ui/core'
+import styles from '../css/generator.module.css'
+import Collapsible from './collapsible'
+import SimpleMenu from './menu'
+import Hoverable from './hoverable'
+import { Link } from 'react-router-dom'
 
 export const titleGenerate = (title, type) => {
   if (title !== undefined) {
-    var alignTitle = "";
-    type === "drawer" ? (alignTitle = "center") : (alignTitle = "left");
+    var alignTitle = ''
+    type === 'drawer' ? (alignTitle = 'center') : (alignTitle = 'left')
   }
   switch (checkTitle(title)) {
-    case "string":
+    case 'string':
       return (
-        <Typography variant="h6" align={alignTitle} className={styles.title}>
+        <Typography variant='h6' align={alignTitle} className={styles.title}>
           {title}
         </Typography>
-      );
-    case "image":
-      if (alignTitle === "center") {
+      )
+    case 'image':
+      if (alignTitle === 'center') {
         return (
           <div className={styles.logoCenter}>
-            <img src={title} height="45px" alt="Logo" id="logo" />
+            <img src={title} height='45px' alt='Logo' id='logo' />
           </div>
-        );
+        )
       } else {
         return (
           <div className={styles.logoLeft}>
-            <img src={title} height="45px" alt="Logo" id="logo" />
+            <img src={title} height='45px' alt='Logo' id='logo' />
           </div>
-        );
+        )
       }
-    case "unknown":
-      throw new Error("Error with data in title prop!");
+    case 'unknown':
+      throw new Error('Error with data in title prop!')
     default:
-      break;
+      break
   }
-};
+}
 
 export const typeGenerate = (data, type, toggleDrawer, drawer) => {
   switch (type) {
-    case "drawer":
+    case 'drawer':
       return (
-        <>
+        <div>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
             onClick={() => {
-              toggleDrawer(true);
+              toggleDrawer(true)
             }}
           >
             <Icon>menu</Icon>
@@ -68,7 +69,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
           <Drawer
             open={drawer}
             onClose={() => {
-              toggleDrawer(false);
+              toggleDrawer(false)
             }}
           >
             <List className={styles.drawer}>
@@ -81,39 +82,44 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                       icon={nav.icon}
                       children={nav.pages}
                     ></Collapsible>
-                  );
+                  )
                 } else {
                   return (
                     <>
-                      <ListItem button={true} key={index}>
+                      <ListItem
+                        button={true}
+                        key={index}
+                        component={Link}
+                        to={nav.href}
+                      >
                         <ListItemIcon>
-                          <Icon color="primary">{nav.icon}</Icon>
+                          <Icon color='primary'>{nav.icon}</Icon>
                         </ListItemIcon>
 
                         <ListItemText primary={nav.title} />
                       </ListItem>
                     </>
-                  );
+                  )
                 }
               })}
             </List>
           </Drawer>
-        </>
-      );
+        </div>
+      )
 
-    case "hoverable":
-      var mode = "hover";
+    case 'hoverable':
+      var mode = 'hover'
       if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
           navigator.userAgent
         )
       ) {
-        mode = "click";
+        mode = 'click'
       }
       return (
-        <>
+        <div>
           <List className={styles.horizontalList}>
-            <Grid container direction="row">
+            <Grid container direction='row'>
               {data.map((nav, index) => {
                 if (nav.pages !== undefined) {
                   return (
@@ -125,31 +131,36 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                         mode={mode}
                       ></Hoverable>
                     </Grid>
-                  );
+                  )
                 } else {
                   return (
                     <>
                       <Grid item key={index}>
-                        <ListItem button={true} key={index}>
+                        <ListItem
+                          button={true}
+                          key={index}
+                          component={Link}
+                          to={nav.href}
+                        >
                           <ListItemIcon className={styles.navbarListIcon}>
-                            <Icon color="primary">{nav.icon}</Icon>
+                            <Icon color='primary'>{nav.icon}</Icon>
                           </ListItemIcon>
 
                           <ListItemText primary={nav.title} />
                         </ListItem>
                       </Grid>
                     </>
-                  );
+                  )
                 }
               })}
             </Grid>
           </List>
-        </>
-      );
+        </div>
+      )
     default:
-      throw new Error("Unknown type in type prop!");
+      throw new Error('Unknown type in type prop!')
   }
-};
+}
 
 export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
   if (additonalButtons !== undefined) {
@@ -161,12 +172,12 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
             buttons.iconButton === false
           ) {
             return (
-              <>
+              <div>
                 <Button
                   key={index}
                   onClick={buttons.function}
-                  variant="outlined"
-                  color="inherit"
+                  variant='outlined'
+                  color='inherit'
                 >
                   {buttons.icon ? (
                     <Icon>{buttons.title}</Icon>
@@ -174,15 +185,15 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                     <Typography>{buttons.title}</Typography>
                   )}
                 </Button>
-              </>
-            );
+              </div>
+            )
           } else {
             return (
-              <>
+              <div>
                 <IconButton
                   key={index}
                   onClick={buttons.function}
-                  color="inherit"
+                  color='inherit'
                 >
                   {buttons.icon ? (
                     <Icon>{buttons.title}</Icon>
@@ -190,8 +201,8 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                     <Typography>{buttons.title}</Typography>
                   )}
                 </IconButton>
-              </>
-            );
+              </div>
+            )
           }
         })}
         {simpleMenu !== undefined ? (
@@ -200,6 +211,6 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
           <></>
         )}
       </div>
-    );
+    )
   }
-};
+}
