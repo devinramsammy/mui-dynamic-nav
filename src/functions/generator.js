@@ -12,7 +12,6 @@ import {
   ListItemText,
   Button
 } from '@material-ui/core'
-import styles from '../css/generator.module.css'
 import Collapsible from './collapsible'
 import SimpleMenu from './menu'
 import Hoverable from './hoverable'
@@ -26,20 +25,24 @@ export const titleGenerate = (title, type) => {
   switch (checkTitle(title)) {
     case 'string':
       return (
-        <Typography variant='h6' align={alignTitle} className={styles.title}>
+        <Typography
+          variant='h6'
+          align={alignTitle}
+          style={{ marginLeft: 'auto !important' }}
+        >
           {title}
         </Typography>
       )
     case 'image':
       if (alignTitle === 'center') {
         return (
-          <div className={styles.logoCenter}>
+          <div style={{ marginLeft: 'auto' }}>
             <img src={title} height='45px' alt='Logo' id='logo' />
           </div>
         )
       } else {
         return (
-          <div className={styles.logoLeft}>
+          <div style={{ marginLeft: '5% auto !important' }}>
             <img src={title} height='45px' alt='Logo' id='logo' />
           </div>
         )
@@ -55,7 +58,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
   switch (type) {
     case 'drawer':
       return (
-        <div>
+        <React.Fragment>
           <IconButton
             color='inherit'
             aria-label='open drawer'
@@ -72,7 +75,9 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
               toggleDrawer(false)
             }}
           >
-            <List className={styles.drawer}>
+            <List
+              style={{ minWidth: '200px', maxWidth: '300px', width: '50%' }}
+            >
               {data.map((nav, index) => {
                 if (nav.pages !== undefined) {
                   return (
@@ -85,7 +90,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                   )
                 } else {
                   return (
-                    <div>
+                    <React.Fragment>
                       <ListItem
                         button={true}
                         key={index}
@@ -98,13 +103,13 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
 
                         <ListItemText primary={nav.title} />
                       </ListItem>
-                    </div>
+                    </React.Fragment>
                   )
                 }
               })}
             </List>
           </Drawer>
-        </div>
+        </React.Fragment>
       )
 
     case 'hoverable':
@@ -117,8 +122,8 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
         mode = 'click'
       }
       return (
-        <div>
-          <List className={styles.horizontalList}>
+        <React.Fragment>
+          <List style={{ marginLeft: 'auto !important' }}>
             <Grid container direction='row'>
               {data.map((nav, index) => {
                 if (nav.pages !== undefined) {
@@ -129,12 +134,13 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                         icon={nav.icon}
                         children={nav.pages}
                         mode={mode}
+                        key={index}
                       ></Hoverable>
                     </Grid>
                   )
                 } else {
                   return (
-                    <div>
+                    <React.Fragment>
                       <Grid item key={index}>
                         <ListItem
                           button={true}
@@ -142,20 +148,20 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                           component={Link}
                           to={nav.href}
                         >
-                          <ListItemIcon className={styles.navbarListIcon}>
+                          <ListItemIcon style={{ minWidth: '30px !important' }}>
                             <Icon color='primary'>{nav.icon}</Icon>
                           </ListItemIcon>
 
                           <ListItemText primary={nav.title} />
                         </ListItem>
                       </Grid>
-                    </div>
+                    </React.Fragment>
                   )
                 }
               })}
             </Grid>
           </List>
-        </div>
+        </React.Fragment>
       )
     default:
       throw new Error('Unknown type in type prop!')
@@ -165,14 +171,14 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
 export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
   if (additonalButtons !== undefined) {
     return (
-      <div className={styles.additionalButtons}>
+      <div style={{ marginLeft: 'auto !important', flexDirection: 'row' }}>
         {additonalButtons.map((buttons, index) => {
           if (
             buttons.iconButton === undefined ||
             buttons.iconButton === false
           ) {
             return (
-              <div>
+              <React.Fragment>
                 <Button
                   key={index}
                   onClick={buttons.function}
@@ -185,11 +191,11 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                     <Typography>{buttons.title}</Typography>
                   )}
                 </Button>
-              </div>
+              </React.Fragment>
             )
           } else {
             return (
-              <div>
+              <React.Fragment>
                 <IconButton
                   key={index}
                   onClick={buttons.function}
@@ -201,14 +207,14 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                     <Typography>{buttons.title}</Typography>
                   )}
                 </IconButton>
-              </div>
+              </React.Fragment>
             )
           }
         })}
         {simpleMenu !== undefined ? (
           <SimpleMenu menuItems={simpleMenu}></SimpleMenu>
         ) : (
-          <div></div>
+          <React.Fragment></React.Fragment>
         )}
       </div>
     )

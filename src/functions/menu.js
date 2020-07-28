@@ -21,7 +21,7 @@ export default function SimpleMenu({ menuItems }) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <IconButton
         onClick={(event) => {
           handleOpen(event)
@@ -53,6 +53,6 @@ export default function SimpleMenu({ menuItems }) {
           )
         })}
       </Menu>
-    </div>
+    </React.Fragment>
   )
 }

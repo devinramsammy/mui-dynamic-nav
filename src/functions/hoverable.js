@@ -8,7 +8,6 @@ import {
   ListItemText,
   Typography
 } from '@material-ui/core'
-import styles from '../css/generator.module.css'
 import { Link } from 'react-router-dom'
 
 export default function Hoverable({ children, icon, title, mode }) {
@@ -25,10 +24,10 @@ export default function Hoverable({ children, icon, title, mode }) {
   // Bug with hoverable, will reapproach after release
   mode = 'click'
   return (
-    <div>
+    <React.Fragment>
       {mode === 'click' ? (
         <ListItem button={true} onClick={handleOpen}>
-          <ListItemIcon className={styles.navbarListIcon}>
+          <ListItemIcon style={{ minWidth: '30px !important' }}>
             <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
@@ -40,7 +39,7 @@ export default function Hoverable({ children, icon, title, mode }) {
         </ListItem>
       ) : (
         <ListItem button={true} onMouseEnter={handleOpen}>
-          <ListItemIcon className={styles.navbarListIcon}>
+          <ListItemIcon style={{ minWidth: '30px !important' }}>
             <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
@@ -58,10 +57,7 @@ export default function Hoverable({ children, icon, title, mode }) {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          onMouseLeave: handleClose,
-          classes: {
-            paper: styles.menuItemList
-          }
+          onMouseLeave: handleClose
         }}
         getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -75,7 +71,6 @@ export default function Hoverable({ children, icon, title, mode }) {
             <MenuItem
               key={index}
               onClick={handleClick}
-              className={styles.menuItem}
               component={Link}
               to={nav.href}
             >
@@ -89,6 +84,6 @@ export default function Hoverable({ children, icon, title, mode }) {
           )
         })}
       </Menu>
-    </div>
+    </React.Fragment>
   )
 }

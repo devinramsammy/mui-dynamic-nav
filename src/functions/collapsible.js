@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from '../css/generator.module.css'
 import {
   Collapse,
   List,
@@ -16,7 +15,7 @@ export default function Collapsible({ title, icon, children }) {
     setOpen(!open)
   }
   return (
-    <div>
+    <React.Fragment>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
           <Icon color='primary'>{icon}</Icon>
@@ -32,11 +31,11 @@ export default function Collapsible({ title, icon, children }) {
         <List component='div' disablePadding>
           {children.map((nav, index) => {
             return (
-              <div>
+              <React.Fragment>
                 <ListItem
                   button={true}
                   key={index}
-                  className={styles.nestedList}
+                  style={{ paddingLeft: '15% !important' }}
                   component={Link}
                   to={nav.href}
                 >
@@ -44,16 +43,13 @@ export default function Collapsible({ title, icon, children }) {
                     <Icon color='primary'>{nav.icon}</Icon>
                   </ListItemIcon>
 
-                  <ListItemText
-                    primary={nav.title}
-                    className={styles.listItem}
-                  />
+                  <ListItemText primary={nav.title} />
                 </ListItem>
-              </div>
+              </React.Fragment>
             )
           })}
         </List>
       </Collapse>
-    </div>
+    </React.Fragment>
   )
 }
