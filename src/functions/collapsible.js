@@ -35,7 +35,7 @@ export default function Collapsible({ title, icon, children }) {
                 <ListItem
                   button={true}
                   key={index}
-                  style={{ paddingLeft: '15% !important' }}
+                  style={{ paddingLeft: '15%' }}
                   component={Link}
                   to={nav.href}
                 >

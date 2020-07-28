@@ -1,7 +1,6 @@
 import React from 'react'
 
 import DynamicNavbar from 'mui-dynamic-nav'
-import 'mui-dynamic-nav/dist/index.css'
 
 const App = () => {
   const someFunction = () => {

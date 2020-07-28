@@ -28,7 +28,7 @@ export const titleGenerate = (title, type) => {
         <Typography
           variant='h6'
           align={alignTitle}
-          style={{ marginLeft: 'auto !important' }}
+          style={{ marginLeft: 'auto' }}
         >
           {title}
         </Typography>
@@ -42,7 +42,7 @@ export const titleGenerate = (title, type) => {
         )
       } else {
         return (
-          <div style={{ marginLeft: '5% auto !important' }}>
+          <div style={{ marginLeft: '5% auto' }}>
             <img src={title} height='45px' alt='Logo' id='logo' />
           </div>
         )
@@ -123,7 +123,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
       }
       return (
         <React.Fragment>
-          <List style={{ marginLeft: 'auto !important' }}>
+          <List style={{ marginLeft: 'auto' }}>
             <Grid container direction='row'>
               {data.map((nav, index) => {
                 if (nav.pages !== undefined) {
@@ -148,7 +148,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                           component={Link}
                           to={nav.href}
                         >
-                          <ListItemIcon style={{ minWidth: '30px !important' }}>
+                          <ListItemIcon style={{ minWidth: '30px' }}>
                             <Icon color='primary'>{nav.icon}</Icon>
                           </ListItemIcon>
 
@@ -171,7 +171,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
 export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
   if (additonalButtons !== undefined) {
     return (
-      <div style={{ marginLeft: 'auto !important', flexDirection: 'row' }}>
+      <div style={{ marginLeft: 'auto', flexDirection: 'row' }}>
         {additonalButtons.map((buttons, index) => {
           if (
             buttons.iconButton === undefined ||
