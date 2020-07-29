@@ -90,7 +90,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                   )
                 } else {
                   return (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
                       <ListItem
                         button={true}
                         key={index}
@@ -140,7 +140,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                   )
                 } else {
                   return (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
                       <Grid item key={index}>
                         <ListItem
                           button={true}
@@ -187,7 +187,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography color='inherit'>{buttons.title}</Typography>
+                    <Typography color='textPrimary'>{buttons.title}</Typography>
                   )}
                 </Button>
               </React.Fragment>
@@ -199,7 +199,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography color='inherit'>{buttons.title}</Typography>
+                    <Typography color='textPrimary'>{buttons.title}</Typography>
                   )}
                 </IconButton>
               </React.Fragment>
