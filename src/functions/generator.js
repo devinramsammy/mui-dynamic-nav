@@ -187,7 +187,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography>{buttons.title}</Typography>
+                    <Typography variant='inherit'>{buttons.title}</Typography>
                   )}
                 </Button>
               </React.Fragment>
@@ -199,7 +199,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography>{buttons.title}</Typography>
+                    <Typography variant='inherit'>{buttons.title}</Typography>
                   )}
                 </IconButton>
               </React.Fragment>

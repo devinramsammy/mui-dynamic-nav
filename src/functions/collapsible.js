@@ -31,7 +31,7 @@ export default function Collapsible({ title, icon, children }) {
         <List component='div' disablePadding>
           {children.map((nav, index) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <ListItem
                   button={true}
                   key={index}

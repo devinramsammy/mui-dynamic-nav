@@ -27,7 +27,7 @@ export default function Hoverable({ children, icon, title, mode }) {
     <React.Fragment>
       {mode === 'click' ? (
         <ListItem button={true} onClick={handleOpen}>
-          <ListItemIcon style={{ minWidth: '30px !important' }}>
+          <ListItemIcon style={{ minWidth: '30px' }}>
             <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
@@ -39,7 +39,7 @@ export default function Hoverable({ children, icon, title, mode }) {
         </ListItem>
       ) : (
         <ListItem button={true} onMouseEnter={handleOpen}>
-          <ListItemIcon style={{ minWidth: '30px !important' }}>
+          <ListItemIcon style={{ minWidth: '30px' }}>
             <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
