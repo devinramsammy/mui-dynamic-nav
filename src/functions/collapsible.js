@@ -15,16 +15,16 @@ export default function Collapsible({ title, icon, children }) {
     setOpen(!open)
   }
   return (
-    <React.Fragment>
+    <React.Fragment key={title}>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          <Icon color='inherit'>{icon}</Icon>
+          <Icon color='primary'>{icon}</Icon>
         </ListItemIcon>
         <ListItemText primary={title} />
         {open ? (
-          <Icon color='inherit'>expand_less</Icon>
+          <Icon color='primary'>expand_less</Icon>
         ) : (
-          <Icon color='inherit'>expand_more</Icon>
+          <Icon color='primary'>expand_more</Icon>
         )}
       </ListItem>
       <Collapse in={open} timeout='auto' unmountOnExit>
@@ -40,7 +40,7 @@ export default function Collapsible({ title, icon, children }) {
                   to={nav.href}
                 >
                   <ListItemIcon>
-                    <Icon color='inherit'>{nav.icon}</Icon>
+                    <Icon color='primary'>{nav.icon}</Icon>
                   </ListItemIcon>
 
                   <ListItemText primary={nav.title} />

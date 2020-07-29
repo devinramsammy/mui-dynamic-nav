@@ -26,9 +26,8 @@ export default function SimpleMenu({ menuItems }) {
         onClick={(event) => {
           handleOpen(event)
         }}
-        color='inherit'
       >
-        <Icon>more_vert</Icon>
+        <Icon color='primary'>more_vert</Icon>
       </IconButton>
       <Menu
         id='simpleMenu'
@@ -44,7 +43,7 @@ export default function SimpleMenu({ menuItems }) {
           return (
             <MenuItem key={index} onClick={handleClick}>
               <ListItemIcon>
-                <Icon color='inherit'>{menuItem.icon}</Icon>
+                <Icon color='primary'>{menuItem.icon}</Icon>
               </ListItemIcon>
               <Typography variant='inherit' noWrap>
                 {menuItem.title}

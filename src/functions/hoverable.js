@@ -28,25 +28,25 @@ export default function Hoverable({ children, icon, title, mode }) {
       {mode === 'click' ? (
         <ListItem button={true} onClick={handleOpen}>
           <ListItemIcon style={{ minWidth: '30px !important' }}>
-            <Icon color='inherit'>{icon}</Icon>
+            <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
           {open ? (
-            <Icon color='inherit'>expand_less</Icon>
+            <Icon color='primary'>expand_less</Icon>
           ) : (
-            <Icon color='inherit'>expand_more</Icon>
+            <Icon color='primary'>expand_more</Icon>
           )}
         </ListItem>
       ) : (
         <ListItem button={true} onMouseEnter={handleOpen}>
           <ListItemIcon style={{ minWidth: '30px !important' }}>
-            <Icon color='inherit'>{icon}</Icon>
+            <Icon color='primary'>{icon}</Icon>
           </ListItemIcon>
           <ListItemText primary={title} />
           {open ? (
-            <Icon color='inherit'>expand_less</Icon>
+            <Icon color='primary'>expand_less</Icon>
           ) : (
-            <Icon color='inherit'>expand_more</Icon>
+            <Icon color='primary'>expand_more</Icon>
           )}
         </ListItem>
       )}
@@ -75,7 +75,7 @@ export default function Hoverable({ children, icon, title, mode }) {
               to={nav.href}
             >
               <ListItemIcon>
-                <Icon color='inherit'>{nav.icon}</Icon>
+                <Icon color='primary'>{nav.icon}</Icon>
               </ListItemIcon>
               <Typography variant='inherit' noWrap>
                 {nav.title}

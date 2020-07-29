@@ -60,21 +60,22 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
       return (
         <React.Fragment>
           <IconButton
-            color='inherit'
             aria-label='open drawer'
             edge='start'
             onClick={() => {
               toggleDrawer(true)
             }}
           >
-            <Icon>menu</Icon>
+            <Icon color='primary'>menu</Icon>
           </IconButton>
           <Drawer
             open={drawer}
             onClose={() => {
               toggleDrawer(false)
             }}
-            style={{ minWidth: '200px', maxWidth: '300px', width: '50%' }}
+            PaperProps={{
+              style: { minWidth: '200px', maxWidth: '300px', width: '50%' }
+            }}
           >
             <List>
               {data.map((nav, index) => {
@@ -97,7 +98,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                         to={nav.href}
                       >
                         <ListItemIcon>
-                          <Icon color='inherit'>{nav.icon}</Icon>
+                          <Icon color='primary'>{nav.icon}</Icon>
                         </ListItemIcon>
 
                         <ListItemText primary={nav.title} />
@@ -148,7 +149,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                           to={nav.href}
                         >
                           <ListItemIcon style={{ minWidth: '30px' }}>
-                            <Icon color='inherit'>{nav.icon}</Icon>
+                            <Icon color='primary'>{nav.icon}</Icon>
                           </ListItemIcon>
 
                           <ListItemText primary={nav.title} />
@@ -182,10 +183,9 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   key={index}
                   onClick={buttons.function}
                   variant='outlined'
-                  color='inherit'
                 >
                   {buttons.icon ? (
-                    <Icon>{buttons.title}</Icon>
+                    <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
                     <Typography>{buttons.title}</Typography>
                   )}
@@ -195,13 +195,9 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
           } else {
             return (
               <React.Fragment>
-                <IconButton
-                  key={index}
-                  onClick={buttons.function}
-                  color='inherit'
-                >
+                <IconButton key={index} onClick={buttons.function}>
                   {buttons.icon ? (
-                    <Icon>{buttons.title}</Icon>
+                    <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
                     <Typography>{buttons.title}</Typography>
                   )}
