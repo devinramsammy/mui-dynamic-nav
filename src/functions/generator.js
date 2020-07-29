@@ -74,10 +74,9 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
             onClose={() => {
               toggleDrawer(false)
             }}
+            style={{ minWidth: '200px', maxWidth: '300px', width: '50%' }}
           >
-            <List
-              style={{ minWidth: '200px', maxWidth: '300px', width: '50%' }}
-            >
+            <List>
               {data.map((nav, index) => {
                 if (nav.pages !== undefined) {
                   return (
@@ -98,7 +97,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                         to={nav.href}
                       >
                         <ListItemIcon>
-                          <Icon color='primary'>{nav.icon}</Icon>
+                          <Icon color='inherit'>{nav.icon}</Icon>
                         </ListItemIcon>
 
                         <ListItemText primary={nav.title} />
@@ -149,7 +148,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                           to={nav.href}
                         >
                           <ListItemIcon style={{ minWidth: '30px' }}>
-                            <Icon color='primary'>{nav.icon}</Icon>
+                            <Icon color='inherit'>{nav.icon}</Icon>
                           </ListItemIcon>
 
                           <ListItemText primary={nav.title} />

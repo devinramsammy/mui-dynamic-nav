@@ -44,7 +44,7 @@ export default function SimpleMenu({ menuItems }) {
           return (
             <MenuItem key={index} onClick={handleClick}>
               <ListItemIcon>
-                <Icon color='primary'>{menuItem.icon}</Icon>
+                <Icon color='inherit'>{menuItem.icon}</Icon>
               </ListItemIcon>
               <Typography variant='inherit' noWrap>
                 {menuItem.title}
