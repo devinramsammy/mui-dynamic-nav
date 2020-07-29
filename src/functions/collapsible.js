@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-export default function Collapsible({ title, icon, children }) {
+export default function Collapsible({ title, icon, children, toggle }) {
   const [open, setOpen] = useState(false)
   const handleClick = () => {
     setOpen(!open)
@@ -38,6 +38,7 @@ export default function Collapsible({ title, icon, children }) {
                   style={{ paddingLeft: '15%' }}
                   component={Link}
                   to={nav.href}
+                  onClick={toggle}
                 >
                   <ListItemIcon>
                     <Icon color='primary'>{nav.icon}</Icon>
