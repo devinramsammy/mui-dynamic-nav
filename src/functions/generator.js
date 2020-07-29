@@ -86,7 +86,7 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                       title={nav.title}
                       icon={nav.icon}
                       children={nav.pages}
-                      toggle={toggleDrawer(false)}
+                      toggleDrawer={toggleDrawer}
                     ></Collapsible>
                   )
                 } else {
@@ -97,7 +97,9 @@ export const typeGenerate = (data, type, toggleDrawer, drawer) => {
                         key={index}
                         component={Link}
                         to={nav.href}
-                        onClick={toggleDrawer(false)}
+                        onClick={() => {
+                          toggleDrawer(false)
+                        }}
                       >
                         <ListItemIcon>
                           <Icon color='primary'>{nav.icon}</Icon>
