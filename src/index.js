@@ -58,7 +58,7 @@ export default function DynamicNavbar({
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <AppBar className={classes.root}>
+        <AppBar className={classes.root} color='primary'>
           <Toolbar>
             {titleGenerate(title, type)}
             {typeGenerate(data, type, toggleDrawer, drawer)}

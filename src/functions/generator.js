@@ -178,7 +178,7 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
             buttons.iconButton === false
           ) {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <Button
                   key={index}
                   onClick={buttons.function}
@@ -187,19 +187,19 @@ export const additionalButtonsGenerate = (additonalButtons, simpleMenu) => {
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography variant='inherit'>{buttons.title}</Typography>
+                    <Typography color='inherit'>{buttons.title}</Typography>
                   )}
                 </Button>
               </React.Fragment>
             )
           } else {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <IconButton key={index} onClick={buttons.function}>
                   {buttons.icon ? (
                     <Icon color='primary'>{buttons.title}</Icon>
                   ) : (
-                    <Typography variant='inherit'>{buttons.title}</Typography>
+                    <Typography color='inherit'>{buttons.title}</Typography>
                   )}
                 </IconButton>
               </React.Fragment>
