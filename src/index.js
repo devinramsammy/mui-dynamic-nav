@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import { AppBar, Toolbar } from '@material-ui/core'
-import {
-  makeStyles,
-  ThemeProvider,
-  createMuiTheme
-} from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   titleGenerate,
   typeGenerate,
@@ -13,7 +9,6 @@ import {
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 export default function DynamicNavbar({
-  theme = createMuiTheme({}),
   type = 'drawer',
   data,
   title,
@@ -45,27 +40,23 @@ export default function DynamicNavbar({
   const classes = useStyles()
   if (type === 'drawer') {
     return (
-      <ThemeProvider theme={theme}>
-        <AppBar className={classes.root} color='primary'>
-          <Toolbar>
-            {typeGenerate(data, type, toggleDrawer, drawer)}
-            {titleGenerate(title, type)}
-            {additionalButtonsGenerate(additionalButtons, simpleMenu, type)}
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
+      <AppBar className={classes.root} color='primary'>
+        <Toolbar>
+          {typeGenerate(data, type, toggleDrawer, drawer)}
+          {titleGenerate(title, type)}
+          {additionalButtonsGenerate(additionalButtons, simpleMenu, type)}
+        </Toolbar>
+      </AppBar>
     )
   } else {
     return (
-      <ThemeProvider theme={theme}>
-        <AppBar className={classes.root} color='primary'>
-          <Toolbar>
-            {titleGenerate(title, type)}
-            {typeGenerate(data, type, toggleDrawer, drawer)}
-            {additionalButtonsGenerate(additionalButtons, simpleMenu, type)}
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
+      <AppBar className={classes.root} color='primary'>
+        <Toolbar>
+          {titleGenerate(title, type)}
+          {typeGenerate(data, type, toggleDrawer, drawer)}
+          {additionalButtonsGenerate(additionalButtons, simpleMenu, type)}
+        </Toolbar>
+      </AppBar>
     )
   }
 }
